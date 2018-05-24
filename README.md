@@ -1,4 +1,11 @@
-# aws_provisioning
+# chef_aws_provisioning
 
-TODO: Enter the cookbook description here.
+Chef cookbooks to provision the infrastrucure on AWS Cloud
 
+Build the docker image
+
+`docker build -t chef/chefdk:v1 .`
+
+Run the docker container
+
+`docker run -i -d -v ~/Documents/workstation/chef_aws_provisioning:/mnt chef/chefdk:v1`
