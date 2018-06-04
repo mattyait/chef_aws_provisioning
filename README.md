@@ -8,4 +8,4 @@ Build the docker image
 
 Run the docker container
 
-`docker run -i -d -v ~/Documents/workstation/chef_aws_provisioning:/mnt chef/chefdk:v1`
+`docker run -i -d -v ~/Documents/workstation/chef_aws_provisioning:/var/chef/cookbooks chef/chefdk:v1`
