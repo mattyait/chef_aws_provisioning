@@ -9,3 +9,7 @@ Build the docker image
 Run the docker container
 
 `docker run -i -d -v ~/Documents/workstation/chef_aws_provisioning:/var/chef/cookbooks chef/chefdk:v1`
+
+Run the chef recipe
+
+`chef-solo -c solo_config/solo.rb -o "recipe[chef_aws_provisioning::vpc]"`
