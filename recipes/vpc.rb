@@ -42,11 +42,11 @@ eip1 = aws_eip_address 'nat1-elastic-ip'
 
 nat1 = aws_nat_gateway 'nat-gateway-1' do
   subnet lazy { public_subnet_1.aws_object.id }
-  eip_address lazy { eip1.aws_object.allocation_id }
+  eip_address lazy { eip1.aws_object.public_ip }
 end
 
 private_route_table_1 = aws_route_table "private-route-table1-#{node['chef_aws_provisioning']['vpc']['vpc_name']}" do
-  routes '0.0.0.0/0' => lazy { nat1.aws_object.id }
+  routes '0.0.0.0/0' => "#{nat1.aws_object.nat_gateway_id}"
   vpc lazy { my_vpc.aws_object.id }
 end
 
@@ -62,11 +62,11 @@ eip2 = aws_eip_address 'nat2-elastic-ip'
 
 nat2 = aws_nat_gateway 'nat-gateway-2' do
   subnet lazy { public_subnet_2.aws_object.id }
-  eip_address lazy { eip2.aws_object.allocation_id }
+  eip_address lazy { eip2.aws_object.public_ip }
 end
 
 private_route_table_2 = aws_route_table "private-route-table2-#{node['chef_aws_provisioning']['vpc']['vpc_name']}" do
-  routes '0.0.0.0/0' => lazy { nat2.aws_object.id }
+  routes '0.0.0.0/0' => "#{nat2.aws_object.nat_gateway_id}"
   vpc lazy { my_vpc.aws_object.id }
 end
 
