@@ -11,8 +11,9 @@ Run the docker container
     docker run -i -d -v ~/Documents/workstation/:/var/chef/cookbooks chef/chefdk:v1
 
 Login to container in interactive mode
-
     docker exec -it <container_id> "/bin/bash"
+                or
+    docker exec -it $(docker ps | grep chef/chefdk:v1 | awk '{print $1}') "/bin/bash"
 
 Setup the AWS profile
 
