@@ -2,3 +2,4 @@
 nodes/
 chef_guid
 local-mode-cache
+solo_config/keys
