@@ -28,3 +28,9 @@ Setup the AWS profile
 Run the recipe
 
     chef-solo -c solo_config/solo.rb -o "recipe[chef_aws_provisioning::vpc]"
+
+
+# Recipes
+
+## VPC
+VPC recipe is reponsible to provision VPC, Public and Private Subnets, Route tables, Nat Gateway in each subnet

@@ -46,7 +46,7 @@ nat1 = aws_nat_gateway 'nat-gateway-1' do
 end
 
 private_route_table_1 = aws_route_table "private-route-table1-#{node['chef_aws_provisioning']['vpc']['vpc_name']}" do
-  routes '0.0.0.0/0' => lazy { nat1.aws_object.nat_gateway_id }
+  routes '0.0.0.0/0' => nat1.aws_object.id
   vpc lazy { my_vpc.aws_object.id }
 end
 
@@ -66,7 +66,7 @@ nat2 = aws_nat_gateway 'nat-gateway-2' do
 end
 
 private_route_table_2 = aws_route_table "private-route-table2-#{node['chef_aws_provisioning']['vpc']['vpc_name']}" do
-  routes '0.0.0.0/0' => lazy { nat2.aws_object.nat_gateway_id }
+  routes '0.0.0.0/0' => nat2.aws_object.id
   vpc lazy { my_vpc.aws_object.id }
 end
 
